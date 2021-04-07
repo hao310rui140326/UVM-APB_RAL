@@ -5,5 +5,5 @@ interface apb_if (input pclk, input presetn);
    logic          pwrite;
    logic          psel;
    logic          penable;
-   logic          presetn;
+//   logic          presetn;
 endinterface
