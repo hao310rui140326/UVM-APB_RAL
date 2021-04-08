@@ -12,8 +12,8 @@ TRANSA = 5000
 CASE = reg_rw_test
 
 verdi_path = /usr/synopsys/Verdi3_L-2016.06-1
-##uvm_path = ../uvm-1.2
-uvm_path = ../uvm-1.1d
+uvm_path = ../uvm-1.2
+##uvm_path = ../uvm-1.1d
 
 RUN_ARGS_COMMON = -access +r -input shm.tcl \
           +uvm_set_config_int=*,recording_detail,1 -coverage all -covoverwrite
