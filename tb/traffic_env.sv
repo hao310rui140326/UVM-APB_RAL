@@ -14,15 +14,19 @@ class traffic_env extends uvm_env;
       super.build_phase (phase);
       m_agent = apb_agent::type_id::create ("m_agent", this);
 
+      uvm_reg::include_coverage ("*", UVM_CVR_ALL);
       m_ral_model          = ral_block_traffic_cfg::type_id::create ("m_ral_model", this);
+      //m_ral_model.configure(null,"top.pB0");
       m_ral_model.build();
+      //m_ral_model.set_coverage(UVM_CVR_ALL);
+      //m_ral_model.lock_model();
+
       m_apb2reg_predictor  = uvm_reg_predictor #(apb_tr) :: type_id :: create ("m_apb2reg_predictor", this);
 
       m_scoreboard = traffic_scoreboard::type_id::create("jb_fc_sub", this );
       
       uvm_config_db #(ral_block_traffic_cfg)::set (null, "uvm_test_top", "m_ral_model", m_ral_model);
 
-      uvm_reg::include_coverage ("*", UVM_CVR_ALL);
    endfunction
 
    virtual function void connect_phase (uvm_phase phase);

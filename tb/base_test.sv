@@ -11,9 +11,14 @@ class base_test extends uvm_test;
    virtual function void build_phase (uvm_phase phase);
       super.build_phase (phase);
       m_env = traffic_env::type_id::create ("m_env", this);
-      
+
+      uvm_reg::include_coverage ("*", UVM_CVR_ALL);
       m_ral_model = ral_block_traffic_cfg::type_id::create("jb_reg_block");
+      m_ral_model.configure(null,"top.pB0");
+
       m_ral_model.build();
+      m_ral_model.set_coverage(UVM_CVR_ALL);
+      m_ral_model.lock_model();
 
       m_env.m_ral_model = m_ral_model;
 

@@ -13,6 +13,7 @@ class my_sequence extends uvm_reg_sequence();
       int            reg_idx = 1;
 
       $cast(m_ral_model, model);
+      //m_ral_model=model;
 
       write_reg(m_ral_model.ctrl, status, 32'd3);
       write_reg(m_ral_model.timer[0], status, 32'b00000010000000000000100000000001);
