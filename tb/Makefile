@@ -29,7 +29,7 @@ vcs_sim:
 
 
 clean:
-	@rm -rf INCA_libs waves.shm rtlsim/* *.history *.log rtlsim/* *.key mdv.log imc.log imc.key ncvlog_*.err *.trn *.dsn .simvision/ xcelium.d simv.daidir *.so *.o *.err  simv*   cov_info*  csrc
+	@rm -rf INCA_libs waves.shm rtlsim/* *.history *.log rtlsim/* *.key mdv.log imc.log imc.key ncvlog_*.err *.trn *.dsn .simvision/ xcelium.d simv.daidir *.so *.o *.err  simv*   cov_info*  csrc  vcdplus.vpd   vc_hdrs.h
 
 rebuild: clean sim
 
