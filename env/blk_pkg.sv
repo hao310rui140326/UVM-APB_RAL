@@ -21,9 +21,13 @@
 // -------------------------------------------------------------
 // 
 
-package blk_reg_pkg;
+package blk_pkg;
 
-`include "reg_B.sv"
+import uvm_pkg::*;
+import blk_reg_pkg::*;
+
+`include "blk_env.sv"
+`include "blk_seqlib.sv"
 
 endpackage
 

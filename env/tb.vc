@@ -1,0 +1,12 @@
+./blk_dut.sv  
+./blk_pkg.sv      
+./blk_testlib.sv  
+./reg_B.sv
+./blk_env.sv  
+./blk_reg_pkg.sv  
+./blk_seqlib.sv 
+./blk_top.sv
+./blk_run.sv    
+
+
+

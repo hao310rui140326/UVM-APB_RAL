@@ -21,9 +21,48 @@
 // -------------------------------------------------------------
 // 
 
-package blk_reg_pkg;
+`include "uvm_pkg.sv"
+`include "apb.sv"
+`include "blk_reg_pkg.sv"
+`include "blk_pkg.sv"
+`include "blk_top.sv"
 
-`include "reg_B.sv"
+program tb;
 
-endpackage
+import uvm_pkg::*;
+import blk_reg_pkg::*;
+import blk_pkg::*;
+
+`include "blk_testlib.sv"
+
+
+class dut_reset_seq extends uvm_sequence;
+
+   function new(string name = "dut_reset_seq");
+      super.new(name);
+   endfunction
+
+   `uvm_object_utils(dut_reset_seq)
+   
+   virtual task body();
+      blk_top.rst = 1;
+      repeat (5) @(negedge blk_top.clk);
+      blk_top.rst = 0;
+   endtask
+endclass
+
+
+initial
+begin
+   static blk_env env = new("env");
+
+   uvm_config_db#(apb_vif)::set(env, "apb", "vif", $root.blk_top.apb0);
+
+   run_test();
+end
+
+endprogram
+
+
+
 

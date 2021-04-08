@@ -21,9 +21,15 @@
 // -------------------------------------------------------------
 // 
 
-package blk_reg_pkg;
+`include "blk_dut.sv"
 
-`include "reg_B.sv"
+module blk_top;
+   bit clk = 0;
+   bit rst = 0;
 
-endpackage
+   apb_if apb0(clk);
+   blk_dut dut(apb0, rst);
+
+   always #10 clk = ~clk;
+endmodule: blk_top
 
