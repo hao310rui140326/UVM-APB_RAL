@@ -3,16 +3,18 @@ class my_sequence extends uvm_reg_sequence();
    function new (string name = "my_sequence");
       super.new (name);
    endfunction
- 
+
+     ral_block_traffic_cfg    m_ral_model;  
+
    virtual task body ();
 
-      ral_block_traffic_cfg    m_ral_model;  
+     // ral_block_traffic_cfg    m_ral_model;  
       
       uvm_reg_data_t rdata;
       uvm_status_e   status;
       int            reg_idx = 1;
 
-      $cast(m_ral_model, model);
+      //$cast(m_ral_model, model);
       //m_ral_model=model;
 
       write_reg(m_ral_model.ctrl, status, 32'd3);

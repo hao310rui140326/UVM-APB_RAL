@@ -10,9 +10,9 @@ class reg_rw_test extends base_test;
    virtual task main_phase(uvm_phase phase);
 
       phase.raise_objection(this);
-      m_seq = my_sequence::type_id::create("m_seq");
+      m_seq = my_sequence::type_id::create("m_seq",this);
 
-      m_seq.model = m_ral_model;
+      m_seq.m_ral_model = m_env.m_ral_model;
 
 
       m_seq.start(m_env.m_agent.m_seqr);
