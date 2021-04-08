@@ -31,5 +31,11 @@ module blk_top;
    blk_dut dut(apb0, rst);
 
    always #10 clk = ~clk;
+
+   initial begin
+       $vcdpluson;	   
+   end
+
+
 endmodule: blk_top
 
