@@ -31,6 +31,15 @@ module top;
     `endif
     `ifdef VCS
        $vcdpluson;
+	
+        $fsdbAutoSwitchDumpfile(1000,"top.fsdb",100);
+	$fsdbDumpoff;
+	$fsdbDumpSVA;
+	//$fsdbDumpMDA;
+	//$fsdbDumpMem;
+	$fsdbDumpvars(0,top);
+	$fsdbDumpon;
+
     `endif
     `ifdef QUESTA
        $wlfdumpvars();

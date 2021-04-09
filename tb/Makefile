@@ -28,6 +28,8 @@ vcs_sim:
 	./simv   +UVM_TESTNAME=$(CASE)  +UVM_VERBOSITY=UVM_LOW   -cm line+cond+fsm+tgl+branch+assert -cm_dir  ./cov_info         -l vcs_sim.log 
 
 
+verdi:
+	verdi $(uvm_path)/src/*.sv   $(RTL_SRC)/*.sv    $(IF) $(PKGS)   ./*.sv   -top top  & 
 clean:
 	@rm -rf INCA_libs waves.shm rtlsim/* *.history *.log rtlsim/* *.key mdv.log imc.log imc.key ncvlog_*.err *.trn *.dsn .simvision/ xcelium.d simv.daidir *.so *.o *.err  simv*   cov_info*  csrc  vcdplus.vpd   vc_hdrs.h  DVEfiles
 

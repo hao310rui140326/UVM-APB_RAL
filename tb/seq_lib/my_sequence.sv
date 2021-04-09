@@ -19,15 +19,21 @@ class my_sequence extends uvm_reg_sequence();
 
       write_reg(m_ral_model.ctrl, status, 32'd3);
       write_reg(m_ral_model.timer[0], status, 32'b00000010000000000000100000000001);
-      write_reg(m_ral_model.timer[1], status, 32'd0);
+      write_reg(m_ral_model.timer[1], status, 32'hcc);
+      //write_reg(m_ral_model.stat, status, 32'h0);
 
+      read_reg(m_ral_model.timer[1], status, rdata );
+
+      write_reg(m_ral_model.ctrl, status, 32'd5,UVM_BACKDOOR);      
       write_reg(m_ral_model.timer[0], status, 32'h5a,UVM_BACKDOOR);
       write_reg(m_ral_model.timer[1], status, 32'ha5,UVM_BACKDOOR);
+      //write_reg(m_ral_model.stat, status, 32'h1,UVM_BACKDOOR);
 
 
       read_reg(m_ral_model.timer[0], status, rdata );
       read_reg(m_ral_model.timer[1], status, rdata );
       read_reg(m_ral_model.ctrl, status, rdata );
+      read_reg(m_ral_model.stat, status, rdata );
       read_reg(m_ral_model.ctrl, status, rdata );
        
 
