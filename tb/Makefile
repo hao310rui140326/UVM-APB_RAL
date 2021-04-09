@@ -28,6 +28,10 @@ vcs_sim:
 	./simv   +UVM_TESTNAME=$(CASE)  +UVM_VERBOSITY=UVM_LOW   -cm line+cond+fsm+tgl+branch+assert -cm_dir  ./cov_info         -l vcs_sim.log 
 
 
+cov:
+	urg   -full64  -dir     ./cov_info.vdb    -metric line+cond+fsm+tgl+branch+assert -report   ./cov_report   -format both
+	/home/software/firefox/firefox  ./cov_report/hierarchy.html  &
+
 verdi:
 	verdi $(uvm_path)/src/*.sv   $(RTL_SRC)/*.sv    $(IF) $(PKGS)   ./*.sv   -top top  & 
 clean:
