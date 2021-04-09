@@ -46,8 +46,8 @@ class blk_R_test_seq extends uvm_reg_sequence;
       // Initialize R with a random value then check against mirror
       data[7:0] = $urandom();
 
-      write_reg(model.R, status, data);
-      read_reg (model.R, status, rd_data);
+      write_reg(model.R, status, data,UVM_BACKDOOR);
+      read_reg (model.R, status, rd_data,UVM_BACKDOOR);
 
       if (data != rd_data)
         `uvm_error("MISCOMPARE","Unexpected value on read")

@@ -8,10 +8,14 @@ class ral_sys_traffic extends uvm_reg_block;
   endfunction
  
   function void build();
-      this.default_map = create_map("", 0, 4, UVM_LITTLE_ENDIAN, 0);
+      this.default_map = create_map("top.pB0", 0, 4, UVM_LITTLE_ENDIAN, 0);
       this.cfg = ral_block_traffic_cfg::type_id::create("cfg",,get_full_name());
-      this.cfg.configure(this, "tb_top.pB0");
+      //this.cfg.configure(this, "top.pB0");
+      //this.cfg.set_hdl_path_root("top.pB0");
+
       this.cfg.build();
+      //this.cfg.set_hdl_path_root("top.pB0");
+
       this.default_map.add_submap(this.cfg.default_map, `UVM_REG_ADDR_WIDTH'h0);
   endfunction
 endclass

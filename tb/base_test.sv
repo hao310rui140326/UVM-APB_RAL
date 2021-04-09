@@ -14,11 +14,14 @@ class base_test extends uvm_test;
 
       uvm_reg::include_coverage ("*", UVM_CVR_ALL);
       m_ral_model = ral_block_traffic_cfg::type_id::create("jb_reg_block");
-      m_ral_model.configure(null,"top.pB0");
+      //m_ral_model.configure(null,"top.pB0");
 
       m_ral_model.build();
-      m_ral_model.set_coverage(UVM_CVR_ALL);
-      m_ral_model.lock_model();
+
+      //m_ral_model.set_hdl_path_root("top.pB0");
+
+      //m_ral_model.set_coverage(UVM_CVR_ALL);
+      //m_ral_model.lock_model();
 
       m_env.m_ral_model = m_ral_model;
 

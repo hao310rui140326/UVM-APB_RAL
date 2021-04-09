@@ -18,6 +18,7 @@ class traffic_env extends uvm_env;
       m_ral_model          = ral_block_traffic_cfg::type_id::create ("m_ral_model", this);
       //m_ral_model.configure(null,"top.pB0");
       m_ral_model.build();
+      //m_ral_model.set_hdl_path_root("top.pB0");
       //m_ral_model.set_coverage(UVM_CVR_ALL);
       //m_ral_model.lock_model();
 

@@ -38,6 +38,12 @@ class ral_block_traffic_cfg extends uvm_reg_block;
     this.stat.build();
     this.reg_map.add_reg(this.stat, `UVM_REG_ADDR_WIDTH'hc, "RO", 0);
 
+    add_hdl_path("top.pB0");
+    ctrl.add_hdl_path_slice("ctl_reg",0,32);
+    timer[0].add_hdl_path_slice("timer_0",0,32);
+    timer[1].add_hdl_path_slice("timer_1",0,32);
+    stat.add_hdl_path_slice("stat_reg",0,32);
+
     lock_model();
   endfunction 
 endclass 
